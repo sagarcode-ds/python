@@ -143,6 +143,176 @@
 #     elif n<s:
 #         print('too low')
 
+# Project A: Vowel and Consonant Counter
+# Topics: while loop, strings, indexing, conditionals, .lower()
+# Ask the user for a sentence. Count how many vowels (a, e, i, o, u) and consonants (letters that are not vowels) it contains. Ignore spaces, digits, and punctuation. Use a while loop to go through each character.
+
+# s=input('enter a sentence :').lower()
+# c=0
+# v=0
+# i=0
+# while i<len(s):
+#     letter=s[i]
+#     if 'a'<=letter<='z':
+#         if letter in 'aeiou':
+#             v+=1
+#         else:
+#             c+=1
+#     i+=1
+# print('no of vowels:',c)
+# print('no of consonants:',c)
+
+# Project B: Word Reverser (Reverse Order of Words)
+# Topics: while loop, string methods (.split()), list indexing, concatenation
+# Ask the user for a sentence. Print the sentence with words in reverse order, but each word spelled normally. Use .split() to get a list of words, then use a while loop to build the reversed sentence.
+
+# s=input('enter a sentence :')
+# words=s.split()
+# print(words)
+# i=len(words)-1
+# reversed=''
+# while i>=0:
+#     if len(reversed)==0:
+#         reversed=words[i]
+#     else:
+#         reversed=reversed+ ' '+words[i]
+
+#     i-=1
+# print(reversed)
+    
+# Project C: Phonebook Menu (Dictionary)
+# Topics: while loop, dictionary, user input, conditionals
+# Create a phonebook using a dictionary. Show a menu:
+# 1. Add contact (name and phone number)
+# 2. Search contact (by name)
+# 3. Delete contact
+# 4. Show all contacts
+# 5. Exit
+# contacts={'sagar':'9767631946','alice':'9847133427'}
+
+# while True:
+#     print('\n-----phonebook-----')
+#     print('1:add','2:search','3:delete','4:show all','5:exit')
+
+#     c=input('choice :')
+#     if c=='1':
+#         add_name=input('name of contact:')
+#         add_no=input('phone no :')
+#         contacts.update({add_name:add_no})
+#         print(contacts)
+#     elif c=='2':
+#         search_contact=input('enter name to search :')
+#         if search_contact in contacts:
+#             print('contact:',search_contact,':',contacts[search_contact])
+#         else:
+#             print(f'{search_contact} not found!')
+#     elif c=='3':
+#         del_contact=input('enter contact name to delete:')
+#         if del_contact in contacts:
+#              del contacts[del_contact]
+#         else:
+#             print('contact not found')
+
+       
+#     elif c=='4':
+#         print(contacts)
+#     elif c=='5':
+#         print('goodbye')
+#         break
+#     else:
+#         print('invalid choice')
+
+# Project D: Remove Duplicate Words from a Sentence (Using Set)
+# Topics: while loop, set, .split(), string methods
+# Ask the user for a sentence. Remove duplicate words while preserving the order of first appearance. Use a set to track seen words, and a while loop to build a new list of unique words.
+
+# s=input('enter a sentence :',)
+# seen=set()
+# unique=[]
+# words=s.split()
+# i=0
+# while i<len(words):
+#     if words[i] not in seen:
+#         seen.add(words[i])
+#         unique.append(words[i])
+#         # print(i, len(words))
+#     i+=1
+# print(unique)
+# new_sent=''
+# j=0
+# while j<len(unique):
+#     if j==0:
+#         new_sent=unique[j]
+#     else:
+#         new_sent=new_sent+' '+unique[j]
+#     j+=1
+# print('unique:',new_sent)
+    
+# Project E: Character Frequency Dictionary (Without Counter)
+# Topics: while loop, dictionary, strings
+# Ask the user for a word. Create a dictionary that counts how many times each letter appears (case‑insensitive, ignore non‑letters). Use a while loop to iterate through the
+
+# w=input('word:')
+# i=0
+# freq={}
+# while i<len(w):
+#     char=w[i]
+#     if 'a'<=char<='z':
+#         freq[char]=freq.get(char,0)+1
+#     i+=1
+# print(freq)    
+
+# Project F: Find the Longest Word in a Sentence
+# Topics: while loop, list, string methods, comparison
+# Ask the user for a sentence. Find and print the longest word. If there is a tie, print the first o
+
+# s=input('sentence :')
+# w=s.split()
+# # print(w,type(w),len(w))  # debug
+# i=0
+# longest=''
+# # print(type(len(longest))) # debug
+# while i<len(w):
+#     if len(w[i])>len(longest):
+#         longest=w[i]
+#     i+=1
+# print('longest word:',longest)
+
+# Project G: Palindrome Checker (Ignore Spaces and Case)
+# Topics: while loop, string manipulation, conditionals
+# Ask the user for a phrase. Check if it is a palindrome (reads the same forwards and backwards), ignoring spaces and case. For example, "A man a plan a canal panama" is a palindrome.
+
+# s=input('phrase:').lower()
+# s = ''.join(s.split())
+# # print(s)   # debug
+# new=''
+# i=len(s)-1
+# while i>=0:
+#         new=new+s[i]
+#         i-=1
+
+# # print(new)  #debug
+# if s==new:
+#     print('palindrome')
+# else:
+#     print('not palindrome')
+
+# Project M: Substring Search (Without in or find)
+# Topics: while loop, string indexing, manual comparison
+# Write a program that asks the user for a main string and a substring. Check if the substring appears anywhere inside the main string. You cannot use Python's in operator or .find() / .index() methods. You must manually compare character by character using loops.
+
+
+    
+
+
+
+
+
+
+    
+    
+
+
 
 
 

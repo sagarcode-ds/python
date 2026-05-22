@@ -449,10 +449,11 @@ print('loop ko xod ke nikal gaya')'''
         continue
     print(f'3 × {i} =', (3 * i))'''
      
-        
+
+# file input/output
 
 
-    
+
 
 
 
