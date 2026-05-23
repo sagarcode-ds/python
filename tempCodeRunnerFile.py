@@ -237,10 +237,78 @@
 # Combines their content into a new file called merged.txt
 # Adds a separator line --- FILE BREAK --- between them
 
-file1=input('enter filename:')
-file2=input('enter filename:')
-with open(file1,'r') as f1,open(file2,'r') as f2:
-    with open('merge.txt','w') as f3:
-        f3.write(f1.read())
-        f3.write('\n--- FILE BREAK ---\n')
-        f3.write(f2.read())
+# file1=input('enter filename:')
+# file2=input('enter filename:')
+# with open(file1,'r') as f1,open(file2,'r') as f2:
+#     with open('merge.txt','w') as f3:
+#         f3.write(f1.read())
+#         f3.write('\n--- FILE BREAK ---\n')
+#         f3.write(f2.read())
+
+
+# Write a program that:
+
+# Reads a file grades.txt where each line is: StudentName Score (e.g., Alice 85)
+# Calculates the average score
+# Finds the highest and lowest scoring students
+# Writes a summary report to report.txt
+
+with open('grade.txt','r') as f:
+    d={}
+    for line in f:
+        d[line.split()[0]]=int(line.split()[1])
+    # print(list(d.items()))
+    score=list(d.items())
+    highest_mark=score[0][1]
+    highest_std=score[0][0]
+    for item in score[1:]:
+        if item[1]>highest_mark:
+            highest_mark=item[1]
+            highest_std=item[0]
+    lowest_mark=score[0][1]
+    lowest_std=score[0][0]
+    for item in score:
+        if item[1]<lowest_mark:
+            lowest_mark=item[1]
+            lowest_std=item[0]
+    summ=0
+    for i in score:
+        summ+=i[1]
+    average=summ/len(score)
+with open('report.txt','w') as f2:
+    f2.write('--summary report--')
+    f2.write(f'\ntotal students:{len(d)}')
+    f2.write(f'\naverage score :{average}')
+    f2.write(f'\nhighest score achieved by {highest_std}, score:{highest_mark}')
+    f2.write(f'\nlowest score achieved by {lowest_std}, score:{lowest_mark}')
+
+
+# 🏋️ Final Exercise
+# Put everything together. Write a program that:
+
+# Creates a file students.txt with at least 5 student names (one per line)
+# Reads the file back and prints all names in uppercase
+# Appends a new student name to the file
+# Counts how many students are in the file total
+
+with open('students.txt','w') as f:
+    f.write('sagar')
+    f.write('\nbob')
+    f.write('\nalice')
+    f.write('\ntyson')
+    f.write('\npriya')
+    f.write('\nriya')
+with open('students.txt','r') as f2:    
+    lines=f2.readlines()
+    for std in lines:
+        print(std.strip().upper())
+with open('students.txt','a+') as f3:
+    f3.write('\nmicheal')
+    f3.write('\ntom')
+    f3.seek(0)
+    print('total students:',len(f3.readlines()))
+ 
+
+        
+    
+
