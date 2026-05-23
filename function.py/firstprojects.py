@@ -91,54 +91,36 @@
 #                 print(is_palindrome(t))
 # main()
 
-# Project 3: Dice Roller (Simulate Multiple Rolls)
-# Write functions to simulate rolling dice. No random? Actually you might need import random. That's fine — it's a built-in module. If you haven't learned import, you can hardcode a list of dice outcomes (e.g., [2,5,1,6,3,4]) and cycle through them. But I'll assume import random is allowed since it's a common next step.
-# Functions:
-# · roll_dice(sides) – returns a random integer from 1 to sides.
-# · roll_multiple(times, sides) – returns a list of dice rolls (call roll_dice in a loop).
-# · sum_rolls(rolls) – returns sum of all rolls in a list.
-# · main() – asks how many dice, how many sides, prints rolls and total.
+# Write a function called min_max(numbers) that takes a list
+# and returns BOTH the minimum and maximum value.
 
-# A
-c={}
-def add_contact(c):
-    name=input('name:')
-    no=input('phone no:')
-    email=input('email:')
-    c[name]={'phone no':no,'email':email}
-    # return c
-# print(add_contact({}))
-def search_contact(c:dict,name):
-    if name in c:
-        print(c[name])
-    else:
-        print('not found')
-def update_contact(c):
-    upd=input('which name to update:')
-    if upd in c:
-        ph_no=input('updated ph no:')
-        upd_email=input('updated email:')
-        c[upd]={'phone no':ph_no,'email':upd_email}
-    else:
-        print('name not in contacts')
+# def min_max(numbers):
+#     return min(numbers),max(numbers)
+# smallest, largest = min_max([4, 1, 9, 2, 7])
+# print(smallest,largest)
 
-def del_contact(c):
-    name=input('name to be deleted:')
-    if name in c:
-        del c[name]
-    else:
-        print('name not in contact')
-def display_all(c):
-    # for contacts in c:
-        
-    
+# Functions Are Values
+# In Python, functions are objects. You can store them in variables and pass them around.
 
+# def titlecase(text):
+#     return text.title()
 
+# def speak(function,text):
+#     return function(text)
 
+# t='hello i am sagar and i am learning python'
+# print(speak(titlecase,t))
 
-        
-
-
+# Write a function called apply_to_all(func, items)
+# that applies func to every item in items and returns a new list.
+   
+# def apply_to_all(func, items):
+#     l=[]
+#     for i in items:
+#         l.append(func(i))
+#     return l
+# print(apply_to_all(str.upper, ["hello", "world", "python"]))
+# print(apply_to_all(len, ["cat", "elephant", "ox"]))
 
 
 

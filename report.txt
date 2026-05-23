@@ -1,5 +1,0 @@
---summary report--
-total students:5
-average score :54.2
-highest score achieved by tyson, score:67
-lowest score achieved by bob, score:38

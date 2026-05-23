@@ -253,34 +253,34 @@
 # Finds the highest and lowest scoring students
 # Writes a summary report to report.txt
 
-with open('grade.txt','r') as f:
-    d={}
-    for line in f:
-        d[line.split()[0]]=int(line.split()[1])
-    # print(list(d.items()))
-    score=list(d.items())
-    highest_mark=score[0][1]
-    highest_std=score[0][0]
-    for item in score[1:]:
-        if item[1]>highest_mark:
-            highest_mark=item[1]
-            highest_std=item[0]
-    lowest_mark=score[0][1]
-    lowest_std=score[0][0]
-    for item in score:
-        if item[1]<lowest_mark:
-            lowest_mark=item[1]
-            lowest_std=item[0]
-    summ=0
-    for i in score:
-        summ+=i[1]
-    average=summ/len(score)
-with open('report.txt','w') as f2:
-    f2.write('--summary report--')
-    f2.write(f'\ntotal students:{len(d)}')
-    f2.write(f'\naverage score :{average}')
-    f2.write(f'\nhighest score achieved by {highest_std}, score:{highest_mark}')
-    f2.write(f'\nlowest score achieved by {lowest_std}, score:{lowest_mark}')
+# with open('grade.txt','r') as f:
+#     d={}
+#     for line in f:
+#         d[line.split()[0]]=int(line.split()[1])
+#     # print(list(d.items()))
+#     score=list(d.items())
+#     highest_mark=score[0][1]
+#     highest_std=score[0][0]
+#     for item in score[1:]:
+#         if item[1]>highest_mark:
+#             highest_mark=item[1]
+#             highest_std=item[0]
+#     lowest_mark=score[0][1]
+#     lowest_std=score[0][0]
+#     for item in score:
+#         if item[1]<lowest_mark:
+#             lowest_mark=item[1]
+#             lowest_std=item[0]
+#     summ=0
+#     for i in score:
+#         summ+=i[1]
+#     average=summ/len(score)
+# with open('report.txt','w') as f2:
+#     f2.write('--summary report--')
+#     f2.write(f'\ntotal students:{len(d)}')
+#     f2.write(f'\naverage score :{average}')
+#     f2.write(f'\nhighest score achieved by {highest_std}, score:{highest_mark}')
+#     f2.write(f'\nlowest score achieved by {lowest_std}, score:{lowest_mark}')
 
 
 # 🏋️ Final Exercise
@@ -291,24 +291,45 @@ with open('report.txt','w') as f2:
 # Appends a new student name to the file
 # Counts how many students are in the file total
 
-with open('students.txt','w') as f:
-    f.write('sagar')
-    f.write('\nbob')
-    f.write('\nalice')
-    f.write('\ntyson')
-    f.write('\npriya')
-    f.write('\nriya')
-with open('students.txt','r') as f2:    
-    lines=f2.readlines()
-    for std in lines:
-        print(std.strip().upper())
-with open('students.txt','a+') as f3:
-    f3.write('\nmicheal')
-    f3.write('\ntom')
-    f3.seek(0)
-    print('total students:',len(f3.readlines()))
+# with open('students.txt','w') as f:
+#     f.write('sagar')
+#     f.write('\nbob')
+#     f.write('\nalice')
+#     f.write('\ntyson')
+#     f.write('\npriya')
+#     f.write('\nriya')
+# with open('students.txt','r') as f2:    
+#     lines=f2.readlines()
+#     for std in lines:
+#         print(std.strip().upper())
+# with open('students.txt','a+') as f3:
+#     f3.write('\nmicheal')
+#     f3.write('\ntom')
+#     f3.seek(0)
+#     print('total students:',len(f3.readlines()))
  
 
-        
-    
+# x = 0
+# result = x or "default"
+# print(result)
 
+# for i in range(3):
+#     # Loop intentionally left empty
+#     pass
+# # print(i)
+# fruits = ["apple", "banana", "cherry"]
+# for i, fruit in enumerate(fruits, start=1):
+#     print(i, fruit)
+
+# t1 = (1, 2)
+# t2 = (3, 4)
+# print(t1 + t2)
+
+# names = ["Alice", "Bob", "Charlie"]
+# scores = [90, 85, 92]
+# for name, score in zip(names, scores):
+#     if score > 89:
+#         print(name)
+
+
+    
