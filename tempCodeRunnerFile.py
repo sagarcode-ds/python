@@ -230,3 +230,17 @@
 #         if line.strip():
 #             f2.write(line)
         
+# Problem M2: File Merger
+# Write a program that:
+
+# Takes two filenames as input (e.g., file1.txt, file2.txt)
+# Combines their content into a new file called merged.txt
+# Adds a separator line --- FILE BREAK --- between them
+
+file1=input('enter filename:')
+file2=input('enter filename:')
+with open(file1,'r') as f1,open(file2,'r') as f2:
+    with open('merge.txt','w') as f3:
+        f3.write(f1.read())
+        f3.write('\n--- FILE BREAK ---\n')
+        f3.write(f2.read())
