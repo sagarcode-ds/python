@@ -1,0 +1,7 @@
+--summary report--
+no of lines containing ERROR:2
+no of lines containing WARNING:2
+no of lines containing INFO:3
+lines containing ERROR:
+2024-01-15 10:23:45 ERROR Database connection failed
+2024-01-15 10:27:33 ERROR Disk write failed
