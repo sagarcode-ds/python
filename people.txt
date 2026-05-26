@@ -1,0 +1,5 @@
+Name|Age|City|Score
+Alice|28|Kathmandu|92
+Bob|34|Pokhara|87
+Charlie|22|Lalitpur|95
+Diana|29|Biratnagar|88
