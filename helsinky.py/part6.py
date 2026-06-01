@@ -499,39 +499,39 @@
 # Sample output
 # Laivasillankatu Hietalahdentori 1.478708873076181
 
-import math
-def get_station_data(filename):
-    with open(filename) as f:
-        d={}
-        for line in f:
-            parts=line.strip().split(';')
-            # print(parts)
-            if parts[0]=='Longitude':
-                continue
-            d[parts[3]]=(float(parts[0]),float(parts[1]))
-    return d
-# print(get_station_data('stations.txt'))
-stations=get_station_data('stations.txt')
-# 1 distance between stations
-def distance(stations: dict, station1: str, station2: str):
-    x=(stations[station1][0]-stations[station2][0])*55.26
-    y=(stations[station1][1]-stations[station2][1])*111.2
-    distance_km = math.sqrt(x**2 + y**2)
-    return distance_km
+# import math
+# def get_station_data(filename):
+#     with open(filename) as f:
+#         d={}
+#         for line in f:
+#             parts=line.strip().split(';')
+#             # print(parts)
+#             if parts[0]=='Longitude':
+#                 continue
+#             d[parts[3]]=(float(parts[0]),float(parts[1]))
+#     return d
+# # print(get_station_data('stations.txt'))
+# stations=get_station_data('stations.txt')
+# # 1 distance between stations
+# def distance(stations: dict, station1: str, station2: str):
+#     x=(stations[station1][0]-stations[station2][0])*55.26
+#     y=(stations[station1][1]-stations[station2][1])*111.2
+#     distance_km = math.sqrt(x**2 + y**2)
+#     return distance_km
 
-# 2 greatest distance
-def greatest_distance(stations):
-    max_distance=0
-    station1=''
-    station2=''
-    for st in stations:
-        for st2 in stations:
-            if st==st2:
-                continue
-            d=distance(stations,st,st2)
-            if d>max_distance:
-                max_distance=d
-                station1=st
-                station2=st2
-    return station1,station2,max_distance
-print(greatest_distance(stations))
+# # 2 greatest distance
+# def greatest_distance(stations):
+#     max_distance=0
+#     station1=''
+#     station2=''
+#     for st in stations:
+#         for st2 in stations:
+#             if st==st2:
+#                 continue
+#             d=distance(stations,st,st2)
+#             if d>max_distance:
+#                 max_distance=d
+#                 station1=st
+#                 station2=st2
+#     return station1,station2,max_distance
+# print(greatest_distance(stations))
