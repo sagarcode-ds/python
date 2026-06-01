@@ -330,6 +330,208 @@
 #     new_txt=' '.join(words)
 # print(new_txt)
 
+# This exercise is about creating a program which allows the user to search for recipes based on their names, preparation times, or ingredients used. The program should read the recipes from a file submitted by the user.
+# Each recipe consists of three or more lines. The first line has the name of the recipe, the second line contains an integer number representing the preparation time in minutes, and the remaining line or lines contain the ingredients used, one on each line. The recipe ends with an empty line, with the exception of the final recipe in the file which just ends with the end of the file. So, there can be more than one recipe in a single file, like in the example below.
+# Pancakes
+# 15
+# milk
+# eggs
+# flour
+# sugar
+# salt
+# butter
+
+# Meatballs
+# 45
+# mince
+# eggs
+# breadcrumbs
+
+# Tofu rolls
+# 30
+# tofu
+# rice
+# water
+# carrot
+# cucumber
+# avocado
+# wasabi
+
+# Cake pops
+# 60
+# milk
+# bicarbonate
+# eggs
+# salt
+# sugar
+# cardamom
+# butter
+# Hint: it might be best to first read through all the lines in the file and pop them into a list, which is then easier to manipulate in the way described in the exercise.
+# Search for recipes based on the name of the recipe
+# Please write a function named search_by_name(filename: str, word: str), which takes a filename and a search string as its arguments. The function should go through the file and select all recipes whose name contains the given search string. The names of these recipes are then returned in a list.
+# An example of the function in action:
+# found_recipes = search_by_name("recipes1.txt", "cake")
+# for recipe in found_recipes:
+#     print(recipe)
+# Sample output
+# Pancakes
+# Cake pops
+# As you can see in the example above, the case of the letters is irrelevant. The search term cake returns both Pancakes and Cake pops, even though the latter is capitalized.
+# NB: If Visual Studio can't find the file and you have checked that there are no spelling errors, take a look at these instructions.
+# Search for recipes based on the preparation time
+# Please write a function named search_by_time(filename: str, prep_time: int), which takes a filename and an integer as its arguments. The function should go through the file and select all recipes whose preparation time is at most the number given.
+# The names of these recipes are again returned in a list, but the preparation time should be appended to each name. Please have a look at the example below.
+# found_recipes = search_by_time("recipes1.txt", 20)
+# for recipe in found_recipes:
+#     print(recipe)
+# Sample output
+# Pancakes, preparation time 15 min
+# Search for recipes based on the ingredients
+# A word of caution: this third part of the exercise is considerably more demanding than the previous two. If you feel like you aren't making headway, it may be worth your while to move on, complete the other exercises in this part of the material, and then come back to this exercise if you have time later. Remember, you can submit and receive points for the first two parts of this exercise even if you haven't completed the third part.
+# Please write a function named search_by_ingredient(filename: str, ingredient: str), which takes a filename and a search string as its arguments. The function should go through the file and select all recipes whose ingredients contain the given search string.
+# The names of these recipes are returned in a list just like in the second part, with the preparation time appended. Please have a look at the example below.
+# found_recipes = search_by_ingredient("recipes1.txt", "eggs")
+# for recipe in found_recipes:
+#     print(recipe)
+# Sample output
+# Pancakes, preparation time 15 min
+# Meatballs, preparation time 45 min
+# Cake pops, preparation time 60 min
+
+# def read_recipe(filename):
+#     with open(filename) as f:
+#         foods=f.readlines()
+#     foods.append('\n')
+#     recipe=[]
+#     name=''
+#     time=''
+#     ingrd=[]
+#     for line in foods:
+#         line=line.strip()
+#         if line=='':
+#             if name!='':
+#                 d={'name':name,'prep time':int(time),'ingredients':ingrd}
+#                 recipe.append(d)
+#             name=''
+#             time=''
+#             ingrd=[]
+#         elif name=='':
+#             name=line
+#         elif time=='':
+#             time=line
+#         else:
+#             ingrd.append(line)
+#     return recipe
 
 
+# def search_by_name(filename,name):
+#     recipes=read_recipe('foods.txt')
+#     l=[]
+#     for i in recipes:
+#         if name.lower() in i['name'].lower():
+#             l.append(i['name'])
+#     return l
+# print(search_by_name('foods.txt','cake')  )         
 
+# def search_by_time(filename,time):
+#     recipes=read_recipe('foods.txt')
+#     l=[]
+#     for i in recipes:
+#         if time <= i['prep time']:
+#             l.append(i['prep time'])
+#     return l 
+# print( search_by_time('foods.txt',15))
+    
+# def search_by_ingredients(filename,ingredient):
+#     recipes=read_recipe('foods.txt')
+#     l=[]
+#     for i in recipes:
+#         if ingredient in i['ingredients']:
+#           l.append(i['name'])
+#     return l
+
+# print(search_by_ingredients('foods.txt','sugar'))
+
+# In this exercise we will write some functions for working on a file containing location data from the stations for city bikes in Helsinki.
+# Each file will follow this format:
+# Longitude;Latitude;FID;name;total_slot;operative;id
+# 24.950292890004903;60.155444793742276;1;Kaivopuisto;30;Yes;001
+# 24.956347471358754;60.160959093887129;2;Laivasillankatu;12;Yes;002
+# 24.944927399779715;60.158189199971673;3;Kapteeninpuistikko;16;Yes;003
+# Each station has a single line in the file. The line contains the coordinates, name, and other identifying information for the station.
+
+# Distance between stations
+# First, write a function named get_station_data(filename: str). This function should read the names and locations of all the stations in the file, and return them in a dictionary with the following format:
+
+# Sample output
+# {
+#   "Kaivopuisto": (24.950292890004903, 60.155444793742276),
+#   "Laivasillankatu": (24.956347471358754, 60.160959093887129),
+#   "Kapteeninpuistikko": (24.944927399779715, 60.158189199971673)
+# }
+# Dictionary keys are the names of the stations, and the value attached is a tuple containing the location coordinates of the station. The first element in the tuple is the Longitude field, and the second is the Latitude field.
+# Next, write a function named distance(stations: dict, station1: str, station2: str), which returns the distance between the two stations given as arguments.
+# The distance is calculated using the Pythagorean theorem. The multiplication factors below are approximate values for converting latitudes and longitudes to distances in kilometres in the Helsinki region.
+# # we will need the function sqrt from the math module 
+# import math
+# x_km = (longitude1 - longitude2) * 55.26
+# y_km = (latitude1 - latitude2) * 111.2
+# distance_km = math.sqrt(x_km**2 + y_km**2)
+# Some examples of the function in action:
+
+# stations = get_station_data('stations1.csv')
+# d = distance(stations, "Designmuseo", "Hietalahdentori")
+# print(d)
+# d = distance(stations, "Viiskulma", "Kaivopuisto")
+# print(d)
+# Sample output
+# 0.9032737292463177
+# 0.7753594392019532
+
+# NB: If Visual Studio can't find the file and you have checked that there are no spelling errors, take a look at these instructions.
+
+# The greatest distance
+# Please write a function named greatest_distance(stations: dict), which works out the two stations on the list with the greatest distance from each other. The function should return a tuple, where the first two elements are the names of the two stations, and the third element is the distance between the two.
+
+# stations = get_station_data('stations1.csv')
+# station1, station2, greatest = greatest_distance(stations)
+# print(station1, station2, greatest)
+# Sample output
+# Laivasillankatu Hietalahdentori 1.478708873076181
+
+import math
+def get_station_data(filename):
+    with open(filename) as f:
+        d={}
+        for line in f:
+            parts=line.strip().split(';')
+            # print(parts)
+            if parts[0]=='Longitude':
+                continue
+            d[parts[3]]=(float(parts[0]),float(parts[1]))
+    return d
+# print(get_station_data('stations.txt'))
+stations=get_station_data('stations.txt')
+# 1 distance between stations
+def distance(stations: dict, station1: str, station2: str):
+    x=(stations[station1][0]-stations[station2][0])*55.26
+    y=(stations[station1][1]-stations[station2][1])*111.2
+    distance_km = math.sqrt(x**2 + y**2)
+    return distance_km
+
+# 2 greatest distance
+def greatest_distance(stations):
+    max_distance=0
+    station1=''
+    station2=''
+    for st in stations:
+        for st2 in stations:
+            if st==st2:
+                continue
+            d=distance(stations,st,st2)
+            if d>max_distance:
+                max_distance=d
+                station1=st
+                station2=st2
+    return station1,station2,max_distance
+print(greatest_distance(stations))
