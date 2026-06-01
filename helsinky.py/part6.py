@@ -195,9 +195,9 @@
 #         grd=0
 #     return grd
 
-# filename1=input('Student information:') #'students.csv'
-# filename2=input('Exercises completed:')   #'excercises.csv'
-# filename3=input('Exam points:')    #'exam_points.csv'
+# filename1=  'students.csv' #input('Student information:')
+# filename2= 'excercises.csv' #input('Exercises completed:')   
+# filename3=  'exam_points.csv'#input('Exam points:')    
 # names={}
 # with open(filename1) as f:
 #     for line in f:
@@ -206,6 +206,7 @@
 #             continue
 #         names[parts[0]]=parts[1]+' '+parts[2]
 # excercises={}
+
 # with open(filename2) as f:
 #    for line in f:
 #       parts=line.strip().split(';')
@@ -216,7 +217,7 @@
 #             summ+=int(i)
 #       e_point=summ//4
 #       excercises[parts[0]]=min(e_point,10)
-# # print('e',excercises)
+# print('e',excercises)
 
 # grades={}
 # with open(filename3) as f:
@@ -229,9 +230,106 @@
 #             summ+=int(i)
 #         # print(summ)
 #         grades[parts[0]]=summ
-# # print(grades)
+# print('grd',grades)
 
 # for pic,name in names.items():
 #     print(f'{name} {grade(excercises.get(pic,0)+grades.get(pic,0))}')   
+
+# This exercise will continue from the previous one. Now we shall print out some statistics based on the CSV files.
+
+# Sample output
+# Student information: students1.csv
+# Exercises completed: exercises1.csv
+# Exam points: exam_points1.csv
+
+# name                          exec_nbr  exec_pts. exm_pts.  tot_pts.  grade
+# pekka peloton                 21        5         9         14        0
+# jaana javanainen              27        6         11        17        1
+# liisa virtanen                35        8         14        22        3
+# Each row contains the information for a single student. The number of exercises completed, the number of exercise points awarded, the number of exam points awarded, the total number of points awarded, and the grade are all displayed in tidy columns. The width of the column for the name should be 30 characters, while the other columns should be 10 characters wide.
+
+# def grade(point):
+#     if point>=28:
+#         grd=5
+#     elif point>=24:
+#         grd=4
+#     elif point>=21:
+#         grd=3
+#     elif point>=18:
+#         grd=2
+#     elif point>=15:
+#         grd=1
+#     else:
+#         grd=0
+#     return grd
+
+# filename1=input('Student information:')  #'students.csv' 
+# filename2=input('Exercises completed:')   # 'excercises.csv' 
+# filename3=input('Exam points:')    #  'exam_points.csv'#input('Exam points:')    
+# names={}
+# with open(filename1) as f:
+#     for line in f:
+#         parts=line.strip().split(';')
+#         if parts[0]=='id':
+#             continue
+#         names[parts[0]]=parts[1]+' '+parts[2]
+# # print('n',names)
+# excercises={}
+# ex_no={}
+# with open(filename2) as f:
+#    for line in f:
+#       parts=line.strip().split(';')
+#       if parts[0]=='id':
+#             continue
+#       summ=0
+#       for i in parts[1:]:
+#             summ+=int(i)
+#       ex_no[parts[0]]=summ  
+#       e_point=summ//4
+#       excercises[parts[0]]=min(e_point,10)
+# # print('e',excercises)
+# # print('e2',ex_no)
+# exam_pts={}
+# with open(filename3) as f:
+#     for line in f:
+#         parts=line.strip().split(';')
+#         if parts[0]=='id':
+#             continue
+#         summ=0
+#         for i in parts[1:]:
+#             summ+=int(i)
+#         # print(summ)
+#         exam_pts[parts[0]]=summ
+        
+# # print('exam points',exam_pts)
+
+# print(f"{'name':30} {'exec_nbr':>10} {'exec_pts.':>10} {'exm_pts.':>10} {'tot_pts.':>10} {'grade':>10}")
+# for pic,name in names.items():
+#     print(f"{names:30} {ex_no[pic]:10} {excercises[pic]:10} {exam_pts[pic]:10} {(excercises[pic]+exam_pts[pic]):10} {(grade(excercises[pic]+exam_pts[pic])):10}")
+
+# Please write a program which asks the user to type in some text. Your program should then perform a spell check, and print out feedback to the user, so that all misspelled words have stars around them. Please see the two examples below:
+# Sample output
+# Write text: We use ptython to make a spell checker
+# We use *ptython* to make a spell checker
+# Sample output
+# Write text: This is acually a good and usefull program
+# This is *acually* good and *usefull* program
+# The case of the letters should be irrelevant to the functioning of your program.
+# The exercise template includes the file wordlist.txt, which contains all the words the spell checker should accept as correct.
+
+# text='We use ptython ptython t acually t make a spell checker '   #input('Write text:')
+# words=text.split()
+# # print(words)
+# with open('wordlist.txt') as f:
+#     content=f.read()
+#     words2=content.lower().split()
+#     # print(words2)
+#     for i,word in enumerate(words):
+#         if word.lower() not in words2:
+#             words[i]=f'*{word}*'
+#     new_txt=' '.join(words)
+# print(new_txt)
+
+
 
 
