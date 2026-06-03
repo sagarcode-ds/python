@@ -235,9 +235,9 @@
 # for pic,name in names.items():
 #     print(f'{name} {grade(excercises.get(pic,0)+grades.get(pic,0))}')   
 
-# This exercise will continue from the previous one. Now we shall print out some statistics based on the CSV files.
+# # This exercise will continue from the previous one. Now we shall print out some statistics based on the CSV files.
 
-# Sample output
+# # Sample output
 # Student information: students1.csv
 # Exercises completed: exercises1.csv
 # Exam points: exam_points1.csv
@@ -686,3 +686,110 @@
 # store_personal_data(('sagar',12,144))
 # store_personal_data(('bob',12,5.6))
 
+# Let's revisit the course grading project from the previous section.
+# As we left if last time, the program read and processed files containing student information, completed exercises and exam results. We'll add a file containing information about the course. An example of the format of the file:
+# Sample data
+# name: Introduction to Programming
+# study credits: 5
+# The program should then create two files. There should be a file called results.txt with the following contents:
+# Sample data
+# Introduction to Programming, 5 credits
+# ======================================
+# name                          exec_nbr  exec_pts. exm_pts.  tot_pts.  grade
+# pekka peloton                 21        5         9         14        0
+# jaana javanainen              27        6         11        17        1
+# liisa virtanen                35        8         14        22        3
+# The statistics section is identical to the results printed out in part 3 of the project. The only addition here is the header section.
+# Additionally, there should be a file called results.csv with the following format:
+# Sample data
+# 12345678;pekka peloton;0
+# 12345687;jaana javanainen;1
+# 12345699;liisa virtanen;3
+# When the program is executed, it should look like this:
+# Sample output
+# Student information: students1.csv
+# Exercises completed: exercises1.csv
+# Exam points: exam_points1.csv
+# Course information: course1.txt
+# Results written to files results.txt and results.csv
+# That is, the program only asks for the names of the input files. All output should be written to the files. The user will only see a message confirming this.
+
+
+# def grade(point):
+#     if point>=28:
+#         grd=5
+#     elif point>=24:
+#         grd=4
+#     elif point>=21:
+#         grd=3
+#     elif point>=18:
+#         grd=2
+#     elif point>=15:
+#         grd=1
+#     else:
+#         grd=0
+#     return grd
+# #  imagine hardcoded filenames as input.
+# filename1= 'students.csv' # input('Student information:') 
+# filename2= 'exercise.csv'  #input('Exercises completed:')    
+# filename3='exam.csv'  #input('Exam points:')   
+# filename4='course.txt' #input('Course information:')
+   
+# names={}
+# with open(filename1) as f:
+#     for line in f:
+#         parts=line.strip().split(';')
+#         if parts[0]=='id':
+#             continue
+#         names[parts[0]]=parts[1]+' '+parts[2]
+# # print('n',names)
+# excercises={}
+# ex_no={}
+# with open(filename2) as f:
+#    for line in f:
+#       parts=line.strip().split(';')
+#       if parts[0]=='id':
+#             continue
+#       summ=0
+#       for i in parts[1:]:
+#             summ+=int(i)
+#       ex_no[parts[0]]=summ  
+#       e_point=summ//4
+#       excercises[parts[0]]=min(e_point,10)
+# # print('e',excercises)
+# # print('e2',ex_no)
+# exam_pts={}
+# with open(filename3) as f:
+#     for line in f:
+#         parts=line.strip().split(';')
+#         if parts[0]=='id':
+#             continue
+#         summ=0
+#         for i in parts[1:]:
+#             summ+=int(i)
+#         # print(summ)
+#         exam_pts[parts[0]]=summ
+        
+# # print('exam points',exam_pts)
+# with open(filename4) as f:
+#     text=f.readlines()
+# l=text[:]
+# # print('l',l)
+
+# with open('results.txt','w') as f:
+#     first_line=l[0].split(':')[1]
+#     # print(first_line)
+#     second_line=l[1].split(':')[1]
+#     second_line=second_line.strip()+' '+'credits'
+#     f.write(first_line.strip()+', '+second_line.strip()+'\n')
+#     f.write('='*40+'\n')
+#     f.write(f"{'name':30} {'exec_nbr':>10} {'exec_pts.':>10} {'exm_pts.':>10} {'tot_pts.':>10} {'grade':>10}"+'\n')    
+#     for pic,name in names.items():
+#         f.write(f"{name:30} {ex_no[pic]:10} {excercises[pic]:10} {exam_pts[pic]:10} {(excercises[pic]+exam_pts[pic]):10} {(grade(excercises[pic]+exam_pts[pic])):10}"+'\n')
+
+# with open('results.csv','w') as f:
+#     for pic,name in names.items():
+#         f.write(f"{pic};{name};{grade(excercises[pic]+exam_pts[pic])}"+'\n')
+
+# print('Results written to files results.txt and results.csv')
+  
