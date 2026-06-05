@@ -793,3 +793,135 @@
 
 # print('Results written to files results.txt and results.csv')
   
+
+
+# Please write a program which functions as a dictionary. The user can type in new entries or look for existing entries.
+# The program should work as follows:
+# Sample output
+# 1 - Add word, 2 - Search, 3 - Quit
+# Function: 1
+# The word in Finnish: auto
+# The word in English: car
+# Dictionary entry added
+# 1 - Add word, 2 - Search, 3 - Quit
+# Function: 1
+# The word in Finnish: roska
+# The word in English: garbage
+# Dictionary entry added
+# 1 - Add word, 2 - Search, 3 - Quit
+# Function: 1
+# The word in Finnish: laukku
+# The word in English: bag
+# Dictionary entry added
+# 1 - Add word, 2 - Search, 3 - Quit
+# Function: 2
+# Search term: bag
+# roska - garbage
+# laukku - bag
+# 1 - Add word, 2 - Search, 3 - Quit
+# Function: 2
+# Search term: car
+# auto - car
+# 1 - Add word, 2 - Search, 3 - Quit
+# Function: 2
+# Search term: laukku
+# laukku - bag
+# 1 - Add word, 2 - Search, 3 - Quit
+# Function: 3
+# Bye!
+# The dictionary entries should be written to a file called dictionary.txt. The program should first read the contents of the file. New entries are written to the end of the file whenever they are added to the dictionary.
+# The format of the data stored in the dictionary is up to you.
+
+# d={}   
+# with open('dictionary.txt') as file:
+#     for line in file:
+#         words=line.strip().split('-')
+#         d[words[0]]=words[1]
+#     # print('d',d)   
+# while True:
+#     print('1 - Add word, 2 - Search, 3 - Quit')
+#     c=input('Function:')   
+#     if c=='1':
+#         f=input('The word in Finnish:')
+#         e=input('The word in English:') 
+#         d[f]=e
+#         with open('dictionary.txt','a') as filename:
+#             filename.write(f'{f}-{e}'+'\n')
+#         print(' Dictionary entry added')
+#     elif c=='2':
+#         search_term=input('Search term:')
+#         found=False
+#         with open('dictionary.txt') as file:
+#             for line in file:
+#                 words=line.strip().split('-')
+#                 for i in words:
+#                     if search_term in i:
+#                         found=True
+#                         print(line)
+#                         break
+#         if not found:
+#             print('search term not available')
+            
+            
+#     elif c=='3':
+#         print('Bye!')
+#         break
+#     else:
+#         print('invalid input! try again')
+# # print(d)
+        
+    
+
+# error handling
+
+# Please write a function named read_input, which asks the user for input until the user types in an integer which falls within the bounds given as arguments to the function. The function should return the final valid integer value typed in by the user.
+# An example of the function in action:
+# number = read_input("Please type in a number: ", 5, 10)
+# print("You typed in:", number)
+# Sample output
+# Please type in a number: seven
+# You must type in an integer between 5 and 10
+# Please type in a number: -3
+# You must type in an integer between 5 and 10
+# Please type in a number: 8
+# You typed in: 8
+
+# def read_input(prompt: str, low: int, high: int) -> int:
+#     while True:
+#         n = input(prompt)
+#         try:
+#             n = int(n)
+#             if low <= n <= high:
+#                 return n
+#             print(f"You must type in an integer between {low} and {high}")
+#         except ValueError:
+#             print(f"You must type in an integer between {low} and {high}")
+
+# number = read_input("Please type in a number: ", 5, 10)
+# print("You typed in:", number)
+
+# Please write a function named new_person(name: str, age: int), which creates and returns a tuple containing the data in the arguments. The first element should be the name and the second the age.
+# If the values stored in the parameter variables are not valid, the function should throw a ValueError exception.
+# Invalid parameters in this case include:
+# name is an empty string
+# name contains less than two words
+# name is longer than 40 characters
+# age is a negative number
+# age is greater than 150
+
+# def new_person(name: str, age: int):
+#     if not (type(name)==str and type(age)==int):
+#         raise TypeError('name must be string and age must be integer')
+#     elif name=='':
+#         raise ValueError('name is empty')
+#     elif len(name.split())<2:
+#         raise ValueError('name must not be less than 2 words')
+#     elif len(name)>40:
+#         raise ValueError('length of name must not be more than 40')
+#     elif not 0<=age<=150:
+#         raise ValueError('age must be between 0-150')
+#     else:
+#         return (name,age)
+# person=new_person('4',20)
+# print(person)
+
