@@ -78,3 +78,63 @@ import numpy as np
 # print(np.std(arr))
 # print(np.var(arr))
 
+# indexing and slicing
+#  1D array(index)  2D array(row,column)
+
+# arr=np.array([10,20,30,40,50])
+# first_element,last_element=arr[0],arr[-1] # and so on
+# print(first_element,last_element)
+# first_three_elements=arr[:3]
+# print(first_three_elements)
+# last_to_first=arr[-1::-1]
+# print(last_to_first)
+
+# fancy indexing: selecting multiple elements at once
+# arr=np.array([10,20,30,40,50])
+# print(arr[[0,2,4]])
+
+#  filtering data (boolean masking)
+# print(arr[arr>25])
+# print(arr[arr%2==0])
+# print(arr[arr<0])
+
+
+# reshaping : manipulating array dimension
+# note: reshaping does not create copy, it returns a view
+# arr=np.array([10,20,30,40,50,60])
+# reshaped_arr=arr.reshape(2,3)
+# print(reshaped_arr,arr)
+
+# flattening array (multi D to 1D array)
+# note: .ravel()-view  .flatten()-copy
+# arr2d=np.array([[1,2,3],
+#                 [4,5,6]])
+# print(arr2d.ravel())
+# print(arr2d.flatten())
+# print(arr2d)
+
+
+#  Advance numpy
+# np.insert(array,idx,val,axis=None) for 2D axis=0(row wise),axis=1(column wise)
+# arr=np.array([10,20,30,40,50,60])
+# new_arr=np.insert(arr,2,100)
+# print(new_arr)
+
+# insert in 2D array
+# arr2d=np.array([[1,2],[8,9]])
+
+# new_arr2d=np.insert(arr2d,1,[4,5],axis=None)
+# print(new_arr2d)
+
+# append (add at end)
+# a=np.append(arr2d,[40,50,60])
+# print(a)
+
+# concatenation :  np.concatenation(array1,array2,axis=0,1)
+# a1=np.array([1,2,3])
+# a2=np.array([4,5,6])
+# new_a=np.concatenate((a1,a2))
+# print(new_a)
+
+
+
