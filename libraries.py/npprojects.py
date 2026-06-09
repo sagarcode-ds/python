@@ -106,3 +106,105 @@ import numpy as np
 # print(round(np.std(sales),2) ,round(np.var(sales),2))
 # since std=22.5, so data are not very spread around mean so maybe consistent?
 
+#  2nd round
+
+# 🟢 Problem 1 — Slicing Practice
+# arr = np.arange(10, 110, 10) → 10 elements
+# Get the first element, last element, and the 5th element
+# Get the first 4 elements using slicing
+# Get the last 3 elements using negative indexing
+# Reverse the entire array
+# Get every other element (step slicing) — predict the output first
+
+# arr = np.arange(10, 110, 10)
+# print(arr)
+# print(' first element, last element, and the 5th element:',arr[[0,-1,4]])
+# print(' first 4 elements:',arr[:4])
+# print('last 3 elements:',arr[-3:])
+# print('reversed array:',arr[-1::-1])
+# print('every other element:',arr[::2])
+
+
+# 🟡 Problem 2 — 2D Indexing
+# Create this matrix manually:
+#  1   2   3   4
+#  5   6   7   8
+#  9  10  11  12
+
+# Access the element at row 2, column 3
+# Print the entire second row
+# Print the entire third column
+# Extract the bottom-right 2×2 sub matrix ([[7,8],[11,12]])
+
+# a=np.array([[1,2,3,4], 
+#             [5,6,7,8],
+#             [9,10,11,12]])
+# print(a)
+# print(a[1,2])
+# print(a[1],a[:,2])
+# print(a[1:,2:])
+
+# 🟠 Problem 3 — Boolean Masking with Combined Conditions
+# Weekly temperatures (°C): [23, 37, 29, 41, 19, 35, 28]
+
+# Find all hot days (above 30°C)
+# Find all cool days (below 25°C)
+# Find pleasant days (between 25 and 35 inclusive) — use a combined condition
+# Find days that are either below 20°C or above 38°C (extreme days)
+
+# temp=np.array([23, 37, 29, 41, 19, 35, 28])
+# print('hot days:',temp[temp>30])
+# print('cold days:',temp[temp<25])
+# print('pleasant days:',temp[(temp>=25) & (temp<=35)])
+# print('extreme days:',temp[(temp<=20) | (temp>=38)])
+
+
+# 🔴 Problem 4 — Reshape + 2D Operations
+# Start with np.arange(1, 13).
+
+# Reshape into a 3×4 matrix — predict the shape before running
+# Reshape the same original array into 4×3 using -1 for one dimension
+# From the 3×4 matrix: extract the entire second column
+# Flatten back to 1D using both .ravel() and .flatten() — they look identical, but which one is a view and which is a copy?
+
+# a=np.arange(1, 13)
+# reshaped=a.reshape(3,4)
+# print(reshaped)
+# print(reshaped[:,1])
+# four_by_three=a.reshape(4,-1)
+# print(four_by_three)
+
+# flattend1,flattend2=four_by_three.ravel(),four_by_three.flatten()
+# print(flattend1)  # modify original
+# flattend1[2]=100  # modified
+# print(flattend1)
+# print(four_by_three)
+# print(flattend2)  # copy
+
+# 🔥 Problem 5 — Challenge (Everything Combined)
+# You have two batches of exam scores:
+
+# Batch A: [55, 72, 88, 45, 91, 63]
+# Batch B: [81, 67, 59, 94, 70, 55]
+
+
+# A new student joined Batch A with score 78 — insert it at position 3
+# Combine both batches (after the insert, Batch A has 7 elements — concatenate as 1D)
+# Find the mean of the combined class
+# Filter out all students who scored above the mean
+# Reshape the original 12-element combined array (before the insert) into a 2×6 matrix — each row is one batch
+# From that 2×6 matrix: extract only the scores from Batch B (entire second row)
+
+# a=np.array([55, 72, 88, 45, 91, 63])
+# b=np.array([81, 67, 59, 94, 70, 55])
+# combined=np.concatenate((a,b))
+# a1=np.insert(a,2,78)
+# print(a1)
+# combined2=np.concatenate((a1,b))
+# print(combined2)
+# mean=round(np.mean(combined2),2)
+# print('scores over mean:',combined2[combined2>mean])
+# reshaped=combined.reshape(2,6)
+# print(reshaped)
+# print('scores from Batch B:',reshaped[1,:])
+
