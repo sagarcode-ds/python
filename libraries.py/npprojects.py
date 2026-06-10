@@ -208,3 +208,80 @@ import numpy as np
 # print(reshaped)
 # print('scores from Batch B:',reshaped[1,:])
 
+#  round 3
+
+# 🟢 Problem 1 — Delete & Stack
+# You have:
+# a = np.array([1, 2, 3, 4, 5])
+# b = np.array([6, 7, 8, 9, 10])
+
+# Delete the element at index 2 from a
+# Delete elements at indices 0 and 4 from b in one call
+# Stack the original a and b row-wise — predict the shape first
+# Stack them column-wise — predict the shape first
+
+# print(np.delete(a,2))
+# print(np.delete(b,[0,4]))
+# print(np.vstack((a,b)))
+# print(np.hstack((a,b)))  # could not predict this one
+
+
+# 🟡 Problem 2 — Splitting
+# Start with np.arange(1, 25) (24 elements):
+# Reshape into a 4×6 matrix
+# Split into 2 equal parts using vsplit — what shape will each part be?
+# Split into 3 equal parts using hsplit — what shape will each part be?
+# On the original 1D array, split at indices [6, 14, 20] using np.split — how many parts does this produce?
+
+# a=np.arange(1, 25)
+# print('a :',a)
+# reshaped=a.reshape(4,6)
+# print(reshaped)
+# print(np.vsplit(reshaped,2))
+# print(np.hsplit(reshaped,3))  # could not predict shape
+# print(np.split(a,[6,14,20]))
+
+
+# 🟠 Problem 3 — Broadcasting
+# You have a 3×4 matrix of product prices:
+# prices = np.array([[100, 200, 300, 400],
+#                    [150, 250, 350, 450],
+#                    [200, 300, 400, 500]])
+
+# Apply a flat 10% discount to all prices
+# Apply different discounts per row — row 0 gets 10%, row 1 gets 20%, row 2 gets 30%. The discount array is [10, 20, 30]. You'll need to reshape it first — think about what shape makes it broadcast correctly across columns
+
+# prices = np.array([[100, 200, 300, 400],
+#                    [150, 250, 350, 450],
+#                    [200, 300, 400, 500]])
+# discount=np.array([10,20,30])
+# dis=discount.reshape(3,1) * 1/100
+# print(dis)
+
+# final_prices=prices-(prices*10/100)
+# print(final_prices)
+
+# discounted_prices=prices-prices*dis
+# print(discounted_prices)
+
+
+# 🔴 Problem 4 — Stack + Delete + Slice + Aggregation
+# You have:
+# a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+# b = np.array([[10, 11, 12], [13, 14, 15], [16, 17, 18]])
+# Stack them vertically — what shape is the result?
+# Delete the 4th row (index 3) from the stacked matrix
+# Extract the second column from the resulting matrix
+# Find the mean of that column — predict it before running
+
+# a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+# b = np.array([[10, 11, 12], [13, 14, 15], [16, 17, 18]])
+# stacked=np.vstack((a,b))
+# print(stacked)
+# arr=np.delete(stacked,3,axis=0)
+# print(arr)
+# second_column=arr[:,1]
+# print(second_column)
+# print(np.mean(second_column))
+
+
