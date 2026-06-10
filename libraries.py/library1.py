@@ -137,4 +137,62 @@ import numpy as np
 # print(new_a)
 
 
+#  deleting the array element  : np.delete(array,index,axis=None)
+# arr=np.array([10,20,30,40,50,60])
+# new_arr=np.delete(arr,0)  # 10 deleted
+# print(new_arr)
+
+#  for 2D
+# arr2d=np.array([[1,2,3],[4,5,6]])
+# new_arr2d=np.delete(arr2d,0,axis=0)
+# print(new_arr2d)
+
+# stacking  vstack() row wise,  hstack() column wise
+# a1=np.array([1,2,3])
+# a2=np.array([4,5,6])
+# print(np.vstack((a1,a2)))
+# print(np.hstack((a1,a2)))
+# a = np.array([[1, 2], [3, 4]])   # 2×2
+# b = np.array([[5, 6], [7, 8]])   # 2×2
+
+# print(np.vstack((a, b)))   # adds rows → 4×2
+# print(np.hstack((a, b)))   # adds cols → 2×4
+
+
+# splitting np.split(), np.hsplit(), np.vsplit()
+# arr=np.array([1,2,3,4,5,6])
+# print(np.split(arr,2))
+# print(np.vsplit(arr,2))  #error
+
+#  broadcasting : expands smaller arrays to larger,faster than loops
+# prices=np.array([100,200,300,400])
+# discount=10 # percent
+# final_prices=prices-prices*discount/100
+# print(final_prices)
+
+# how numpy handle arrays of different shapes?
+#  rule 1: matching dimension, example
+# print(np.array([1,2,3])+np.array([1,2,3])) # [2 4 6]
+
+# rule 2: expanding single elements
+# print(np.array([1,2,3])+10) # [11 12 13]
+
+# rule 3 : incompatible shapes
+#  error
+
+# matrix=np.array([[1,2,3],[4,5,6]]) # 2x3
+# vector=np.array([10,20,30]) #1D
+# result=matrix+vector  
+# print(result)  #  [[11 22 33] [14 25 36]]
+
+# print(np.array([[1,2,3],[4,5,6]])+np.array(np.array([1,2])))  #ValueError: operands could not be broadcast together with shapes (2,3) (2,)
+#  solution:  reshape
+
+#  vectorization : apply operations on entire array, faster than loops, used in matrix operation
+# print(np.array([1,2,3])+np.array([4,5,6]))
+# print(np.array([10,20,30]) * 3)
+
+
+
+
 
