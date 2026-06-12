@@ -193,6 +193,26 @@ import numpy as np
 # print(np.array([10,20,30]) * 3)
 
 
+#  handling missing and special values
+# np.isnan-detect missing values, np.nan_to_num(), np.isinf()
+# nan- not a num(either calculation fail or data missing)
+
+# arr=np.array([1,2,np.nan,4,np.nan,5,6])
+# print(np.isnan(arr))
+# print(np.nan==np.nan)  # False, can't be compared
+
+# replace np.nan values:  np.nan_to_num(array,nan=number, default=0)
+# arr2=np.nan_to_num(arr,nan=4)
+# print(arr2)
+
+#  handling infinite values : np.isinf(array)
+# arr=np.array([1,2,np.inf,4,-np.inf,6])
+# print(arr)
+# print(np.isinf(arr))
+
+#  now replace infinite values with non-infinite
+# arr2=np.nan_to_num(arr,posinf=1000,neginf=-1000)
+# print(arr2)
 
 
 
