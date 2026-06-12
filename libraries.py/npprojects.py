@@ -284,4 +284,106 @@ import numpy as np
 # print(second_column)
 # print(np.mean(second_column))
 
+#  Round 3
 
+# 🟢 Problem 1 — Warm-up
+# arr = np.array([3.0, np.nan, 7.0, np.nan, 12.0, 5.0])
+
+# Print the boolean mask showing where NaN values are
+# Count how many NaN values exist — do it in one line using two functions you now know
+# Replace all NaN with 0 using nan_to_num
+# On the original array, find the sum and mean the safe way
+
+# print(np.isnan(arr))
+# print(np.sum(np.isnan(arr)))
+# arr2=np.nan_to_num(arr,nan=0)
+# print(arr2)
+# print(np.nansum(arr),np.nanmean(arr))
+
+
+### 🟡 Problem 2 — NaN-safe aggregation
+# scores = np.array([85.0, 92.0, np.nan, 78.0, np.nan, 88.0, 95.0])
+
+# 1. Try `np.mean(scores)` — what comes out and why?
+# 2. Find the correct mean, min, max, and std using nan-safe functions
+# 3. Replace each NaN with the **nanmean** of the array (compute it first, then pass to nan_to_num)
+# 4. After replacement, verify no NaN remain — use `np.sum` + `np.isnan` in one line
+
+# print(np.mean(scores))  # nan, due to presence of np.nan value, 
+# print(np.nanmean(scores),np.nanmin(scores),np.nanmax(scores),round(np.nanstd(scores),2))
+# mean=np.nanmean(scores)
+# scores2=np.nan_to_num(scores,nan=mean)
+# print(scores2)
+# print(np.sum(np.isnan(scores2))) # 0, verified no Nan remained
+
+
+# 🟠 Problem 3 — Mixed NaN and inf
+# data = np.array([5.0, np.inf, 3.0, np.nan, -np.inf, 8.0, np.nan, 2.0])
+
+# Count NaN values and infinite values separately
+# Extract only the finite values using np.isfinite + boolean masking
+# From those finite values, find mean, min, max
+# Clean the full array in one call: NaN → 0, +inf → 999, -inf → -999
+# Predict what np.sum(data) gives before cleaning. Then verify after cleaning.
+
+# print(np.sum(np.isnan(data)),np.sum(np.isinf(data))) # 2,2
+# finites=data[np.isfinite(data)]
+# print(finites)
+# print(np.mean(finites),np.min(finites),np.max(finites))
+# print(np.sum(data)) # nan obviously
+# cleaned_arr=np.nan_to_num(data,nan=0,posinf=999,neginf=-999)
+# print(cleaned_arr,np.sum(cleaned_arr))
+
+
+# 🔴 Problem 4 — 2D Missing Data
+# readings = np.array([[1.0,  2.0, np.nan, 4.0],
+#                      [5.0, np.nan, 7.0,  8.0],
+#                      [np.nan, 10.0, 11.0, 12.0]])
+
+# Print the boolean mask of NaN positions
+# Count total NaN values in the entire matrix
+# Replace all NaN with the nanmean of the entire matrix
+# After replacement, verify no NaN remain
+# Find the sum and mean of the cleaned matrix — do these match what nansum and nanmean gave on the original?
+
+# print(np.isnan(readings))
+# print(np.sum(np.isnan(readings)))
+# mean=np.nanmean(readings)
+# readings2=np.nan_to_num(readings,nan=mean)
+# print(readings2)
+# print(np.sum(np.isnan(readings2)))  # 0, verified
+# summ,mean=np.nansum(readings),np.nanmean(readings)
+# summ2,mean2=np.sum(readings2),np.mean(readings2)
+
+# print(summ,summ2,summ==summ2)
+# print(mean,mean2,mean==mean2)  # does not match with original sum but match with mean
+
+
+# 🔥 Problem 5 — Challenge (Full pipeline)
+# You have a 12-point temperature sensor dataset with errors:
+# temps = np.array([23.0, np.nan, 37.0, np.inf, 19.0, np.nan,
+#                   -np.inf, 28.0, 35.0, 41.0, np.nan, 29.0])
+
+# Count NaN values and infinite values separately
+# Extract only finite values using boolean masking — find their mean, min, max
+# Clean the full array: NaN → mean of finite values, +inf → max finite value, -inf → min finite value (use nan_to_num with the values from step 2)
+# Reshape the cleaned 12-element array into a 3×4 matrix (3 weeks, 4 readings each)
+# Filter all temperatures above the overall mean from the reshaped matrix using boolean masking
+# Delete the first week (row 0) from the matrix, then find the mean and std of what remains
+
+# print(np.sum(np.isnan(temps)),np.sum(np.isinf(temps)))
+# finite=temps[np.isfinite(temps)]
+# mean,minn,maxx=np.mean(finite),np.min(finite),np.max(finite)
+# print(finite),print(mean,minn,maxx)
+
+# cleaned_arr=np.nan_to_num(temps,nan=mean,posinf=maxx,neginf=minn)
+# print(cleaned_arr)
+
+# reshaped_arr=cleaned_arr.reshape(3,4)
+# print(reshaped_arr)
+
+# filtered_arr=reshaped_arr[reshaped_arr>mean]
+# print(filtered_arr)
+
+# new_arr=np.delete(reshaped_arr,0,axis=0)
+# print(f'{np.mean(new_arr):.2f},{np.std(new_arr):.2f}')
