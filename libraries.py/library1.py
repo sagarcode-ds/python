@@ -214,5 +214,106 @@ import numpy as np
 # arr2=np.nan_to_num(arr,posinf=1000,neginf=-1000)
 # print(arr2)
 
+#  Missing concepts from Tutorial
+
+# np.where()
+# scores = np.array([40,55,70,85])
+
+# result = np.where(scores >= 50,
+#                   "Pass",
+#                   "Fail")
+
+# print(result)
 
 
+# Conditional Replacement
+# Replace negative numbers with 0.
+# arr = np.array([-5,10,-3,20])
+# arr[arr < 0] = 0
+# print(arr)
+
+# sorting
+# arr = np.array([5,1,8,3])
+# print(np.sort(arr))
+
+# removing duplicates from array
+# arr = np.array([1,1,2,2,3,3,3])
+# print(np.unique(arr))
+
+#  sum by rows and columns
+# np.sum(arr, axis=0) sum by columns, not row
+# np.sum(arr, axis=1)
+
+
+# arr = np.array([10,20,30,40])
+# print(np.any(arr > 35))
+# print(np.all(arr > 5))
+
+# Transpose
+# A = np.array([[1,2,3],
+#               [4,5,6]])
+# print(A.T)
+
+# np.linspace()- evenly spaced points
+# arr = np.linspace(0, 1, 5)
+# print(arr)
+# [0. 0.25 0.5 0.75 1.0]
+
+
+# finding indices of largest,smallest items
+# arr = np.array([10,20,30,40])
+# print(np.argmax(arr))
+# print(np.argmin(arr))
+# print(np.argsort(arr)) # indices that would sort it
+
+
+# np.clip()-keeps all values within min-max range.
+# arr=np.array([-10,5,200,85,-3,110])
+# clipped=np.clip(arr,0,100)
+# print(clipped) # [  0   5 100  85   0 100]
+
+# np.cumsum() and np.cumprod()-
+# sales=np.array([100,200,150,300])
+# # running totals and running products
+# sales_cumsum = np.cumsum(sales)
+# sales_cumprod = np.cumprod(sales)
+# print('sales:', sales)
+# print('cumulative sum:', sales_cumsum)
+# print('cumulative product:', sales_cumprod)
+
+# np.median() and np.percentile
+# np.percentile(array,25)- First Quartile or 25th percentile,  np.percentile(array,75)- 3rd Quartile or 75th percentile
+
+
+# matrix multiplication : np.dot() and @
+# a=np.array([[1,2],
+#             [3,4]])
+# b=np.array([[5,6],
+#             [7,8]])
+# print(a*b) # element wise multiplication
+# print(np.dot(a,b))  # true mathematical multiplication
+# print(a @ b) # same as np.dot just shorter syntax
+
+# np.newaxis- used to reshape 1D arrays for broadcasting with 2D arrays
+# row=np.array([1,2,3])
+# col=np.array([10,20,30]) 
+
+# Want to add them as row + column? Need 2D shapes
+# row_2d = row[np.newaxis, :] # shape (1, 3)
+# col_2d = col[:, np.newaxis] # shape (3, 1)
+
+# print(row_2d)
+# print(col_2d)
+# result = row_2d + col_2d # broadcasts to (3, 3)
+# print(result)
+
+
+### 10. `np.corrcoef()` — Correlation (Key for EDA)
+# Tells you how strongly two variables are related. Returns values between -1 and 1.
+
+# hours_studied = np.array([1, 2, 3, 4, 5])
+# scores = np.array([50, 60, 65, 80, 95])
+
+# print(np.corrcoef(hours_studied, scores))
+# [[1. , 0.98],
+# [0.98, 1. ]] ← 0.98 means very strong positive correlation
