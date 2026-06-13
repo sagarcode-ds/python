@@ -387,3 +387,32 @@ import numpy as np
 
 # new_arr=np.delete(reshaped_arr,0,axis=0)
 # print(f'{np.mean(new_arr):.2f},{np.std(new_arr):.2f}')
+
+#  Projects
+
+### Project 1 — Student Grade Analyzer *(Beginner)*
+
+# **Goal:** Given raw marks, produce a full grade report.
+# Tasks:
+# 1. Create an array of 10 student scores (use np.random.randint)
+# 2. Find class average, highest, lowest, std deviation
+# 3. Use np.where() to assign grades: A(≥80), B(≥65), C(≥50), F(<50)
+# 4. Count how many students passed (score ≥ 50)
+# 5. Find the rank of each student using argsort
+
+np.random.seed(42)
+scores = np.random.randint(0, 101, 10)
+print(scores)
+print(np.mean(scores),np.max(scores),np.min(scores),np.std((scores)))
+
+grades = np.where(scores >= 80, 'A',
+         np.where(scores >= 65, 'B',
+         np.where(scores >= 50, 'C', 'F')))
+print(grades)
+print('no of students who passed:',np.sum(scores >= 50) )
+print('\nrank of each students:')
+ranks = np.argsort(np.argsort(-scores)) + 1
+print(ranks)
+
+
+
