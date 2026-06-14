@@ -400,19 +400,45 @@ import numpy as np
 # 4. Count how many students passed (score ≥ 50)
 # 5. Find the rank of each student using argsort
 
-np.random.seed(42)
-scores = np.random.randint(0, 101, 10)
-print(scores)
-print(np.mean(scores),np.max(scores),np.min(scores),np.std((scores)))
+# np.random.seed(42)
+# scores = np.random.randint(0, 101, 10)
+# print(scores)
+# print(np.mean(scores),np.max(scores),np.min(scores),np.std((scores)))
 
-grades = np.where(scores >= 80, 'A',
-         np.where(scores >= 65, 'B',
-         np.where(scores >= 50, 'C', 'F')))
-print(grades)
-print('no of students who passed:',np.sum(scores >= 50) )
-print('\nrank of each students:')
-ranks = np.argsort(np.argsort(-scores)) + 1
-print(ranks)
+# grades = np.where(scores >= 80, 'A',
+#          np.where(scores >= 65, 'B',
+#          np.where(scores >= 50, 'C', 'F')))
+# print(grades)
+# print('no of students who passed:',np.sum(scores >= 50) )
+# print('\nrank of each students:')
+# ranks = np.argsort(np.argsort(-scores)) + 1
+# print(ranks)
 
+
+
+### Project 2 — Monthly Sales Dashboard *(Beginner-Intermediate)*
+
+# **Goal:** Analyze a 2D sales table (4 products × 12 months).
+# Tasks:
+# 1. Generate a (4, 12) array using np.random.randint(500, 5000, ...)
+# 2. Find total annual sales per product (sum across axis=1)
+# 3. Find best-selling month overall (sum across axis=0, then argmax)
+# 4. Apply a 10% discount to all sales in months 6-9 (broadcasting)
+# 5. Find which product had the highest single-month sale
+
+# np.random.seed(42)
+# sales = np.random.randint(500, 5000, size=(4, 12))
+# print('sales:',sales)
+# print('total annual sales per product:',np.sum(sales,axis=1))
+
+# all_months_sales=np.sum(sales,axis=0)
+# print('best-selling month:',np.argmax(all_months_sales)+1)
+
+# sales=sales.astype(float)
+# sales[:,5:9]=sales[:,5:9]-sales[:,5:9]*10/100
+
+# highest_sale=np.max(sales)
+# result=np.where(sales==highest_sale)
+# print(f'product {result[0][0]+1} had the highest single-month sale in month {result[1][0]+1}')
 
 
